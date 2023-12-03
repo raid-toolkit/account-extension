@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Raid.Common" Version="2.8.17" />
+	</ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Multipliers.json" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0-windows</TargetFrameworks>
+        <LangVersion>10.0</LangVersion>
+        <OutputType>Library</OutputType>
+        <AssemblyName>Raid.Toolkit.DataModel</AssemblyName>
+        <RootNamespace>Raid.Toolkit.DataModel</RootNamespace>
+        <Platforms>x64</Platforms>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+</Project>

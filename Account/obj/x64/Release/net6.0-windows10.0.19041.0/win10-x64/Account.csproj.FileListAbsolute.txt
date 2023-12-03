@@ -1,0 +1,17 @@
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extension.Account.deps.json
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extension.Account.dll
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extension.Account.pdb
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Common.dll
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.DataModel.dll
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extensibility.dll
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Common.pdb
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.DataModel.pdb
+M:\git\raid-toolkit-sdk\src\Extensions\Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extensibility.pdb
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Account.csproj.AssemblyReference.cache
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Account.GeneratedMSBuildEditorConfig.editorconfig
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Account.AssemblyInfoInputs.cache
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Account.AssemblyInfo.cs
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Account.csproj.CoreCompileInputs.cache
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Account.csproj.CopyComplete
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extension.Account.dll
+M:\git\raid-toolkit-sdk\src\Extensions\Account\obj\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.Extension.Account.pdb

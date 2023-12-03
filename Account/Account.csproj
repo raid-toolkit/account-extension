@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="$(BuildTargetProps)" />
+	<PropertyGroup>
+        <AssemblyName>Raid.Toolkit.Extension.Account</AssemblyName>
+        <RootNamespace>Raid.Toolkit.Extension.Account</RootNamespace>
+        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<Nullable>enable</Nullable>
+    </PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Raid.Toolkit.Extensibility" Version="2.8.17" />
+		<PackageReference Include="Raid.Toolkit.Extensibility.Tasks" Version="2.8.17">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+        <RTKExtensionManifest Include=".rtk.extension.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </RTKExtensionManifest>
+    </ItemGroup>
+</Project>
