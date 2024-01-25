@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Raid.Toolkit.DataModel;
 using Raid.Toolkit.DataModel.Enums;
 using Raid.Toolkit.Extensibility;
+using Raid.Toolkit.Extension;
 
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raid.Toolkit.Extension.Account;
+namespace Raid.Toolkit.AccountExtension;
 
 public class HeroesExtension :
     AccountDataExtensionBase,
@@ -22,7 +23,7 @@ public class HeroesExtension :
     private const string Key = "heroes.json";
 
     IGetAccountDataApi<HeroData> IAccountPublicApi<IGetAccountDataApi<HeroData>>.GetApi() => this;
-    bool IGetAccountDataApi<HeroData>.TryGetData(out HeroData data) => Storage.TryRead(Key, out data);
+    bool IGetAccountDataApi<HeroData>.TryGetData([NotNullWhen(true)] out HeroData? data) => Storage.TryRead(Key, out data);
 
     public HeroesExtension(IAccount account, IExtensionStorage storage, ILogger<HeroesExtension> logger)
     : base(account, storage, logger)
@@ -32,7 +33,7 @@ public class HeroesExtension :
     protected override Task Update(ModelScope scope)
     {
         if (!Account.TryGetApi<IGetAccountDataApi<StaticHeroTypeData>>(out var heroTypesApi)
-            || !heroTypesApi.TryGetData(out StaticHeroTypeData staticHeroTypes))
+            || !heroTypesApi.TryGetData(out StaticHeroTypeData? staticHeroTypes))
             return Task.CompletedTask;
 
 
@@ -44,7 +45,7 @@ public class HeroesExtension :
         var heroesById = userHeroData.HeroById;
 
         // ignore result, and assume null below for missing value
-        _ = Storage.TryRead(Key, out HeroData previous);
+        _ = Storage.TryRead(Key, out HeroData? previous);
 
         // copy all previous deleted elements to save cost when looking later
         Dictionary<int, Hero> result = previous != null ? previous.Heroes.Filter(kvp => kvp.Value.Deleted) : new();
@@ -105,7 +106,7 @@ public class HeroesExtension :
 
     public void Export(IAccountReaderWriter account)
     {
-        if (Storage.TryRead(Key, out HeroData data))
+        if (Storage.TryRead(Key, out HeroData? data))
             account.Write(Key, data);
     }
 

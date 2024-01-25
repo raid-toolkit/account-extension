@@ -25,13 +25,13 @@ namespace Raid.Toolkit.DataModel
         public int StageId;
 
         [JsonProperty("difficulty")]
-        public string Difficulty;
+        public string? Difficulty;
 
         [JsonProperty("bossName")]
-        public LocalizedText BossName;
+        public LocalizedText? BossName;
 
         [JsonProperty("modifiers")]
-        public StatsModifier[] Modifiers;
+        public StatsModifier[] Modifiers = Array.Empty<StatsModifier>();
 
         [JsonProperty(propertyName: "formations")]
         public StageFormation[] Formations = Array.Empty<StageFormation>();

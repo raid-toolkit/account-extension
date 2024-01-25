@@ -1,6 +1,6 @@
 using Raid.Toolkit.Extensibility;
 
-namespace Raid.Toolkit.Extension.Account;
+namespace Raid.Toolkit.AccountExtension;
 
 public class AccountDataExtensionFactory<T> : IAccountExtensionFactory
     where T : AccountDataExtensionBase

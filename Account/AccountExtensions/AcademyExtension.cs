@@ -7,11 +7,12 @@ using Microsoft.Extensions.Logging;
 using Raid.Toolkit.DataModel;
 using Raid.Toolkit.DataModel.Enums;
 using Raid.Toolkit.Extensibility;
+using Raid.Toolkit.Extension;
 
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Raid.Toolkit.Extension.Account;
+namespace Raid.Toolkit.AccountExtension;
 
 public class AcademyExtension :
     AccountDataExtensionBase,
@@ -22,7 +23,7 @@ public class AcademyExtension :
     private const string Key = "academy.json";
 
     IGetAccountDataApi<AcademyData> IAccountPublicApi<IGetAccountDataApi<AcademyData>>.GetApi() => this;
-    bool IGetAccountDataApi<AcademyData>.TryGetData(out AcademyData data) => Storage.TryRead(Key, out data);
+    bool IGetAccountDataApi<AcademyData>.TryGetData([NotNullWhen(true)] out AcademyData? data) => Storage.TryRead(Key, out data);
 
     public AcademyExtension(IAccount account, IExtensionStorage storage, ILogger<AcademyExtension> logger)
     : base(account, storage, logger)
@@ -32,7 +33,7 @@ public class AcademyExtension :
     protected override Task Update(ModelScope scope)
     {
         if (!Account.TryGetApi<IGetAccountDataApi<StaticAcademyData>>(out var api)
-            || !api.TryGetData(out StaticAcademyData academyBonuses))
+            || !api.TryGetData(out StaticAcademyData? academyBonuses))
             return Task.CompletedTask;
 
         var academy = scope.AppModel._userWrapper.Academy.AcademyData;
@@ -66,7 +67,7 @@ public class AcademyExtension :
 
     public void Export(IAccountReaderWriter account)
     {
-        if (Storage.TryRead(Key, out AcademyData data))
+        if (Storage.TryRead(Key, out AcademyData? data))
             account.Write(Key, data);
     }
 

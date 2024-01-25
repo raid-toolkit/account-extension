@@ -1,48 +1,22 @@
 using System;
+
 using Newtonsoft.Json;
 
-namespace Raid.Toolkit.DataModel
+using Raid.Toolkit.Extensibility;
+
+namespace Raid.Toolkit.DataModel;
+
+public class Account : AccountBase
 {
-    public class AccountBase
-    {
-        [JsonProperty("id")]
-        public string Id { get; set; }
+	public Account(string id, string avatar, string avatarId, string name, int level, int power) : base(id, avatar, avatarId, name, level, power)
+	{
+	}
 
-        [JsonProperty("avatar")]
-        public string Avatar { get; set; }
+	[JsonProperty("lastUpdated")]
+	public DateTime? LastUpdated;
 
-        [JsonProperty("avatarId")]
-        public string AvatarId { get; set; }
-
-        [JsonProperty("avatarUrl")]
-        public string AvatarUrl => $"https://raidtoolkit.com/img/avatars/{AvatarId}.png";
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("level")]
-        public int Level { get; set; }
-
-        [JsonProperty("power")]
-        public int Power { get; set; }
-    }
-    public class Account : AccountBase
-    {
-        [JsonProperty("lastUpdated")]
-        public DateTime? LastUpdated;
-        
-        public static Account FromBase(AccountBase accountBase, DateTime? lastUpdated)
-        {
-            return new Account()
-            {
-                Id = accountBase.Id,
-                Name = accountBase.Name,
-                Level = accountBase.Level,
-                Avatar = accountBase.Avatar,
-                AvatarId = accountBase.AvatarId,
-                Power = accountBase.Power,
-                LastUpdated = lastUpdated
-            };
-        }
-    }
+	public static Account FromBase(AccountBase accountBase, DateTime? lastUpdated)
+	{
+		return new(accountBase.Id, accountBase.Avatar, accountBase.AvatarId, accountBase.Name, accountBase.Level, accountBase.Power);
+	}
 }

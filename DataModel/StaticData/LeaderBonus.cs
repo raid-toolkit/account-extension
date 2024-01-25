@@ -5,9 +5,9 @@ namespace Raid.Toolkit.DataModel
     public class LeaderStatBonus : StatBonus
     {
         [JsonProperty("area")]
-        public string AreaTypeId;
+        public string? AreaTypeId;
 
         [JsonProperty("affinity")]
-        public string Affinity;
+        public string? Affinity;
     }
 }

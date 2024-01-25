@@ -6,13 +6,14 @@ using Microsoft.Extensions.Logging;
 
 using Raid.Toolkit.DataModel;
 using Raid.Toolkit.Extensibility;
+using Raid.Toolkit.Extension;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Raid.Toolkit.Extension.Account;
+namespace Raid.Toolkit.AccountExtension;
 
 public class ArtifactExtension :
     AccountDataExtensionBase,
@@ -24,7 +25,7 @@ public class ArtifactExtension :
     private readonly ArtifactsProviderState State;
 
     IGetAccountDataApi<ArtifactsDataObject> IAccountPublicApi<IGetAccountDataApi<ArtifactsDataObject>>.GetApi() => this;
-    bool IGetAccountDataApi<ArtifactsDataObject>.TryGetData(out ArtifactsDataObject data) => Storage.TryRead(Key, out data);
+    bool IGetAccountDataApi<ArtifactsDataObject>.TryGetData([NotNullWhen(true)] out ArtifactsDataObject? data) => Storage.TryRead(Key, out data);
 
     public ArtifactExtension(IAccount account, IExtensionStorage storage, ILogger<ArtifactExtension> logger)
     : base(account, storage, logger)
@@ -40,7 +41,7 @@ public class ArtifactExtension :
 
         bool hasUpdates = true;
 
-        if (State.ShouldForceUpdate() || !Storage.TryRead(Key, out ArtifactsDataObject previous))
+        if (State.ShouldForceUpdate() || !Storage.TryRead(Key, out ArtifactsDataObject? previous))
         {
             Logger.LogInformation("Performing full artifact update");
             artifacts = GetArtifacts(scope);
@@ -94,7 +95,7 @@ public class ArtifactExtension :
 
     public void Export(IAccountReaderWriter account)
     {
-        if (Storage.TryRead(Key, out ArtifactsDataObject data))
+        if (Storage.TryRead(Key, out ArtifactsDataObject? data))
             account.Write(Key, data);
     }
 

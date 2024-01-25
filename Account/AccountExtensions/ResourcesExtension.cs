@@ -11,8 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Raid.Toolkit.Extension;
 
-namespace Raid.Toolkit.Extension.Account;
+namespace Raid.Toolkit.AccountExtension;
 
 public class ResourcesExtension :
     AccountDataExtensionBase,
@@ -23,7 +24,7 @@ public class ResourcesExtension :
     private const string Key = "resources.json";
 
     IGetAccountDataApi<Resources> IAccountPublicApi<IGetAccountDataApi<Resources>>.GetApi() => this;
-    bool IGetAccountDataApi<Resources>.TryGetData(out Resources data) => Storage.TryRead(Key, out data);
+    bool IGetAccountDataApi<Resources>.TryGetData([NotNullWhen(true)] out Resources? data) => Storage.TryRead(Key, out data);
 
     public ResourcesExtension(IAccount account, IExtensionStorage storage, ILogger<ResourcesExtension> logger)
     : base(account, storage, logger)
@@ -47,7 +48,7 @@ public class ResourcesExtension :
 
     public void Export(IAccountReaderWriter account)
     {
-        if (Storage.TryRead(Key, out Resources data))
+        if (Storage.TryRead(Key, out Resources? data))
             account.Write(Key, data);
     }
 

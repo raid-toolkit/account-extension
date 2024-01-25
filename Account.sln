@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Account", "Account\Account.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "DataModel\DataModel.csproj", "{E0A675CE-C091-46DD-9942-88329F57EFC7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realtime", "Realtime\Realtime.csproj", "{C7616D89-0A20-457D-ABA5-041432E769BB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22B0496E-A17A-430E-A4BB-2EADB8DED3F3}"
 	ProjectSection(SolutionItems) = preProject
 		BuildTargets.props = BuildTargets.props
@@ -30,10 +28,6 @@ Global
 		{E0A675CE-C091-46DD-9942-88329F57EFC7}.Debug|x64.Build.0 = Debug|x64
 		{E0A675CE-C091-46DD-9942-88329F57EFC7}.Release|x64.ActiveCfg = Release|x64
 		{E0A675CE-C091-46DD-9942-88329F57EFC7}.Release|x64.Build.0 = Release|x64
-		{C7616D89-0A20-457D-ABA5-041432E769BB}.Debug|x64.ActiveCfg = Debug|x64
-		{C7616D89-0A20-457D-ABA5-041432E769BB}.Debug|x64.Build.0 = Debug|x64
-		{C7616D89-0A20-457D-ABA5-041432E769BB}.Release|x64.ActiveCfg = Release|x64
-		{C7616D89-0A20-457D-ABA5-041432E769BB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

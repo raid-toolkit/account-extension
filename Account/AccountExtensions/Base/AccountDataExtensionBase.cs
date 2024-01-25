@@ -1,16 +1,4 @@
-using Client.Model.Gameplay.Artifacts;
-using Il2CppToolkit.Runtime;
-using Microsoft.Extensions.Logging;
-using Raid.Toolkit.DataModel;
-using Raid.Toolkit.Extensibility;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Raid.Toolkit.Extension.Account;
+namespace Raid.Toolkit.AccountExtension;
 
 public abstract class AccountDataExtensionBase : IAccountExtension, IAccountExtensionService, IDisposable
 {

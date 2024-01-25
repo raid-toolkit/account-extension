@@ -37,9 +37,6 @@ namespace Raid.Toolkit.DataModel
         [JsonProperty("effects")]
         public EffectType[]? Effects;
 
-        [JsonProperty("upgrades"), Obsolete("Use SkillBonuses instead")]
-        public SkillUpgrade[]? Upgrades;
-
         [JsonProperty("skillBonuses")]
         public SkillBonus[]? SkillBonuses;
 
@@ -63,33 +60,32 @@ namespace Raid.Toolkit.DataModel
     public class SkillType : BaseSkillData
     {
         [JsonProperty("name")]
-        public LocalizedText Name;
+        public LocalizedText? Name;
 
         [JsonProperty("description")]
-        public LocalizedText Description;
+        public LocalizedText? Description;
     }
 
     public class SkillSnapshot : BaseSkillData
     {
         [JsonProperty("name")]
-        public string Name;
+        public string? Name;
 
         [JsonProperty("description")]
-        public string Description;
+        public string? Description;
 
         [JsonProperty("level")]
         public int Level;
 
         public SkillSnapshot(SkillType skill)
         {
-            Name = skill.Name.Localize();
-            Description = skill.Description.Localize();
+            Name = skill.Name?.Localize();
+            Description = skill.Description?.Localize();
             TypeId = skill.TypeId;
             Cooldown = skill.Cooldown;
             Visibility = skill.Visibility;
             Unblockable = skill.Unblockable;
             Effects = skill.Effects;
-            Upgrades = skill.Upgrades;
             SkillBonuses = skill.SkillBonuses;
             Targets = skill.Targets;
             Group = skill.Group;
@@ -746,7 +742,7 @@ namespace Raid.Toolkit.DataModel
         public ActivateSkillOwner SkillOwner;
 
         [JsonProperty("targetExpression")]
-        public string TargetExpression;
+        public string? TargetExpression;
     }
 
     public class ShowHiddenSkillParams
@@ -834,13 +830,13 @@ namespace Raid.Toolkit.DataModel
         public int BaseTypeId;
 
         [JsonProperty("ascendLevelFormula")]
-        public string AscendLevelFormula;
+        public string? AscendLevelFormula;
 
         [JsonProperty("gradeFormula")]
-        public string GradeFormula;
+        public string? GradeFormula;
 
         [JsonProperty("levelFormula")]
-        public string LevelFormula;
+        public string? LevelFormula;
 
         [JsonProperty("removeAfterDeath")]
         public bool RemoveAfterDeath;
@@ -1029,10 +1025,10 @@ namespace Raid.Toolkit.DataModel
     public class DevourParams
     {
         [JsonProperty("digestionLifetimeFormula")]
-        public string DigestionLifetimeFormula;
+        public string? DigestionLifetimeFormula;
 
         [JsonProperty("digestionStrengthFormula")]
-        public string DigestionStrengthFormula;
+        public string? DigestionStrengthFormula;
     }
 
     public class TransformationParams
@@ -1286,16 +1282,6 @@ namespace Raid.Toolkit.DataModel
 
         [JsonProperty("changeProtectionParams")]
         public ChangeProtectionParams? ChangeProtectionParams;
-    }
-
-    [Obsolete("Use SkillBonus")]
-    public class SkillUpgrade
-    {
-        [JsonProperty("type")]
-        public string? SkillBonusType;
-
-        [JsonProperty("value")]
-        public double Value;
     }
 
     public class SkillBonus

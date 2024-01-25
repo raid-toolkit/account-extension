@@ -1,30 +1,31 @@
+using Raid.Toolkit.Common.API;
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Raid.Toolkit.DataModel
+namespace Raid.Toolkit.DataModel;
+
+[PublicApi("static-data")]
+public interface IStaticDataApi
 {
-    [PublicApi("static-data")]
-    public interface IStaticDataApi
-    {
-        [PublicApi("getAllData")]
-        Task<StaticData> GetAllData();
+    [PublicApi("getAllData")]
+    Task<StaticData> GetAllData();
 
-        [PublicApi("getLocalizedStrings")]
-        Task<IReadOnlyDictionary<string, string>> GetLocalizedStrings();
+    [PublicApi("getLocalizedStrings")]
+    Task<IReadOnlyDictionary<string, string>> GetLocalizedStrings();
 
-        [PublicApi("getArenaData")]
-        Task<StaticArenaData> GetArenaData();
+    [PublicApi("getArenaData")]
+    Task<StaticArenaData> GetArenaData();
 
-        [PublicApi("getArtifactData")]
-        Task<StaticArtifactData> GetArtifactData();
+    [PublicApi("getArtifactData")]
+    Task<StaticArtifactData> GetArtifactData();
 
-        [PublicApi("getHeroData")]
-        Task<StaticHeroTypeData> GetHeroData();
+    [PublicApi("getHeroData")]
+    Task<StaticHeroTypeData> GetHeroData();
 
-        [PublicApi("getSkillData")]
-        Task<StaticSkillData> GetSkillData();
+    [PublicApi("getSkillData")]
+    Task<StaticSkillData> GetSkillData();
 
-        [PublicApi("getStageData")]
-        Task<StaticStageData> GetStageData();
-    }
+    [PublicApi("getStageData")]
+    Task<StaticStageData> GetStageData();
 }
