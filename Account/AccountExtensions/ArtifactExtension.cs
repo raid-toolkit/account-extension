@@ -1,18 +1,5 @@
 using Client.Model.Gameplay.Artifacts;
 
-using Il2CppToolkit.Runtime;
-
-using Microsoft.Extensions.Logging;
-
-using Raid.Toolkit.DataModel;
-using Raid.Toolkit.Extensibility;
-using Raid.Toolkit.Extension;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Raid.Toolkit.AccountExtension;
 
 public class ArtifactExtension :

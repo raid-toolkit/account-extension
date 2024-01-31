@@ -47,6 +47,7 @@ public class AccountExtension : ExtensionPackage, IDisposable
 		Servers.Add(host.CreateInstance<StaticDataApi>(host));
 		Servers.Add(host.CreateInstance<AccountApi>(host));
 		Servers.Add(host.CreateInstance<RealtimeApi>(host));
+		Servers.Add(host.CreateInstance<DiscoveryHandler>(Servers));
 
 		Disposables.Add(host.RegisterAccountExtension(new AccountDataExtensionFactory<RealtimeExtension>(host, true)));
 

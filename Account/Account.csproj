@@ -5,31 +5,26 @@
 		<RootNamespace>Raid.Toolkit.AccountExtension</RootNamespace>
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
-
 	<ItemGroup>
+		<PackageReference Include="SuperSocket.WebSocketServer" Version="2.0.0-beta.18" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
-		<PackageReference Include="Raid.Toolkit.Common" Version="3.0.56-unstable-gd93ea6a734" />
-		<PackageReference Include="Raid.Toolkit.Extensibility" Version="3.0.56-unstable-gd93ea6a734" />
-		<PackageReference Include="Raid.Toolkit.Build.Tasks" Version="3.0.56-unstable-gd93ea6a734">
+		<PackageReference Include="Raid.Toolkit.Common" Version="3.0.67-unstable-gd6b6266597" />
+		<PackageReference Include="Raid.Toolkit.Extensibility" Version="3.0.67-unstable-gd6b6266597" />
+		<PackageReference Include="Raid.Toolkit.Build.Tasks" Version="3.0.67-unstable-gd6b6266597">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="SuperSocket.WebSocketServer" Version="2.0.0-beta.18" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<RTKExtensionManifest Include=".rtk.extension.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</RTKExtensionManifest>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="_rtkCache\" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\DataModel\DataModel.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<RTKExtensionManifest Include="manifest.json" />
 	</ItemGroup>
 </Project>

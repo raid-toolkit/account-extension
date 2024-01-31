@@ -45,7 +45,7 @@ public class RealtimeExtension : AccountDataExtensionBase,
 
 	private readonly RealtimeDataSnapshot Snapshot = new();
 
-	public RealtimeExtension(IAccount account, IExtensionStorage storage, ILogger logger)
+	public RealtimeExtension(IAccount account, IExtensionStorage storage, ILogger<RealtimeExtension> logger)
 		: base(account, storage, logger)
 	{
 	}

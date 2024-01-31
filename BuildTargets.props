@@ -9,9 +9,5 @@
         <Platform>x64</Platform>
         <Platforms>x64</Platforms>
         <LangVersion>10.0</LangVersion>
-
-        <!-- https://github.com/dotnet/maui/issues/5886#issuecomment-1123106200 -->
-        <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 </Project>
