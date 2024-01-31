@@ -33,13 +33,6 @@ jobs:
 
       - name: Set branch-based environment variables
         uses: iamtheyammer/branch-env-vars@v1.0.4
-        with:
-          PRERELEASE: |
-            main:true
-            !default:false
-          PRERELEASEN: |
-            main:1
-            !default:0
 
       # Install the .NET Core workload
       - name: Install .NET Core
@@ -70,16 +63,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Project
-        run: dotnet pack -p:Configuration=Release -p:Platform=x64 -p:PackageOutputPath="$(Get-Location)\publish\nuget"
-
-      - name: Create release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ steps.rtk_version.outputs.Version }}
-          prerelease: ${{ env.PRERELEASE }}
-          body_path: CHANGES.md
-          files: |
-            ThirdPartyNotice.txt
+        run: dotnet pack -p:Configuration=Release -p:Platform=x64 -p:UseCachedRTKInterop=false -p:PackageOutputPath="$(Get-Location)\publish\nuget"
 
       # NuGet Push
       - name: Push client package to Nuget registry
