@@ -39,21 +39,21 @@
       },
       "Nerdbank.GitVersioning": {
         "type": "Direct",
-        "requested": "[3.5.108, )",
-        "resolved": "3.5.108",
-        "contentHash": "+1Zn/jrrbBS1MVK20W8d8g4nEREPuZ6IHDTmtqlJiNeGXN45Iou0IPe5hykbLAVyWfnoN3bPCDBIVjeAfoMsWQ=="
+        "requested": "[3.6.133, )",
+        "resolved": "3.6.133",
+        "contentHash": "VZWMd5YAeDxpjWjAP/X6bAxnRMiEf6tES/ITN0X5CHJgkWLLeHGmEALivmTAfYM6P+P/3Szy6VCITUAkqjcHVw=="
       },
       "Raid.Toolkit.Build.Tasks": {
         "type": "Direct",
-        "requested": "[3.0.67-unstable-gd6b6266597, )",
-        "resolved": "3.0.67-unstable-gd6b6266597",
-        "contentHash": "6MUmv68Culh0C8VOxYiYrdR+s3CdIssJKFVg8anPCMDsoNv5v2UNZ/LH44f652hXg1USo/c7IXcewxWkGXyztw==",
+        "requested": "[3.0.74-unstable-gdf43c691f5, )",
+        "resolved": "3.0.74-unstable-gdf43c691f5",
+        "contentHash": "KVatizDKm7NliI9/UftRENZpmR0goO5lCplL4RV3QHRV7JQ5+ur8NMiUDVYaVCUid6/mYbgXyDYq+Xt4RoV11w==",
         "dependencies": {
           "Microsoft.Build.Tasks.Core": "17.1.0",
           "Microsoft.Win32.Registry": "5.0.0",
           "Newtonsoft.Json": "13.0.3",
-          "Raid.Toolkit.Common": "3.0.67-unstable-gd6b6266597",
-          "Raid.Toolkit.Loader": "3.0.67-unstable-gd6b6266597",
+          "Raid.Toolkit.Common": "3.0.74-unstable-gdf43c691f5",
+          "Raid.Toolkit.Loader": "3.0.74-unstable-gdf43c691f5",
           "il2cpptoolkit.common": "2.0.134-alpha",
           "il2cpptoolkit.metadata": "2.0.134-alpha",
           "il2cpptoolkit.reversecompiler": "2.0.134-alpha",
@@ -63,9 +63,9 @@
       },
       "Raid.Toolkit.Common": {
         "type": "Direct",
-        "requested": "[3.0.67-unstable-gd6b6266597, )",
-        "resolved": "3.0.67-unstable-gd6b6266597",
-        "contentHash": "XAF3ozUcbgj6wU5p1EzIc63W8872TjNfujWtdakB+sSgR/pmHPvf9LYOwipP1eIZ60T8TUwvcoHA1gjANgPcrg==",
+        "requested": "[3.0.74-unstable-gdf43c691f5, )",
+        "resolved": "3.0.74-unstable-gdf43c691f5",
+        "contentHash": "1SoKmBFHUU/6mX5ywutW9n/FPW8FlYcai8+ywrRSqK6CFf7cujeav8mBSW81zf9t9/S3TLRzq0/sm1ciPItqVg==",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
@@ -76,12 +76,12 @@
       },
       "Raid.Toolkit.Extensibility": {
         "type": "Direct",
-        "requested": "[3.0.67-unstable-gd6b6266597, )",
-        "resolved": "3.0.67-unstable-gd6b6266597",
-        "contentHash": "oBdgfyCWOoQFTejftFfkkMLk24hyU8GLf7dX46hJ6HOG7vSWSFLJ7hsPeB1GLUkl/bChmIE1lxwmej857Stgyw==",
+        "requested": "[3.0.74-unstable-gdf43c691f5, )",
+        "resolved": "3.0.74-unstable-gdf43c691f5",
+        "contentHash": "lJEr+TTJPsMJCpcCizvAMNcRDAX3DEQNwcv/Jr789EFXC1BD/RnEex/AQsZ5Xw7gvQNcZCkQz5x+tgQlg1xrOg==",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
-          "Raid.Toolkit.Common": "3.0.67-unstable-gd6b6266597",
+          "Raid.Toolkit.Common": "3.0.74-unstable-gdf43c691f5",
           "il2cpptoolkit.common": "2.0.134-alpha",
           "il2cpptoolkit.metadata": "2.0.134-alpha",
           "il2cpptoolkit.runtime": "2.0.134-alpha"
@@ -511,12 +511,12 @@
       },
       "Raid.Toolkit.Loader": {
         "type": "Transitive",
-        "resolved": "3.0.67-unstable-gd6b6266597",
-        "contentHash": "462xh8mM71DIgZfz48OVP2Em5rERJxTGvy3EPDfu/1cyNGjYwb5vxiXw8lTTdEvSUBIdCMdSMoMQCdgGlpRsCQ==",
+        "resolved": "3.0.74-unstable-gdf43c691f5",
+        "contentHash": "2ggz/fJsVZJBFfQTcyClkFWo4vWvW6BFHtDtNpilvcRFUQGRoprI6z+KSIvuWtgwLDYWKegDvqJgoDEI/Hv4bQ==",
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
           "Newtonsoft.Json": "13.0.3",
-          "Raid.Toolkit.Common": "3.0.67-unstable-gd6b6266597",
+          "Raid.Toolkit.Common": "3.0.74-unstable-gdf43c691f5",
           "il2cpptoolkit.common": "2.0.134-alpha",
           "il2cpptoolkit.metadata": "2.0.134-alpha",
           "il2cpptoolkit.reversecompiler": "2.0.134-alpha",
@@ -926,8 +926,8 @@
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "[13.0.3, )",
-          "Raid.Toolkit.Common": "[3.0.67-unstable-gd6b6266597, )",
-          "Raid.Toolkit.Extensibility": "[3.0.67-unstable-gd6b6266597, )"
+          "Raid.Toolkit.Common": "[3.0.74-unstable-gdf43c691f5, )",
+          "Raid.Toolkit.Extensibility": "[3.0.74-unstable-gdf43c691f5, )"
         }
       }
     },

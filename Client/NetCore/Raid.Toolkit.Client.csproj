@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Raid.Toolkit.Common" Version="3.0.74-unstable-gdf43c691f5" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\DataModel\DataModel.csproj" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-windows10.0.19041.0</TargetFrameworks>
+		<LangVersion>10.0</LangVersion>
+		<UseWindowsForms>true</UseWindowsForms>
+		<OutputType>Library</OutputType>
+		<AssemblyName>Raid.Toolkit.Client</AssemblyName>
+		<RootNamespace>Raid.Toolkit.Client</RootNamespace>
+		<NuspecProperties>version=$(Version)</NuspecProperties>
+		<Platforms>x64</Platforms>
+		<NBGV_ThisAssemblyNamespace>$(RootNamespace)</NBGV_ThisAssemblyNamespace>
+	</PropertyGroup>
+
+</Project>

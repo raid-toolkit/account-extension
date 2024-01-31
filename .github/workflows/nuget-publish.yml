@@ -1,0 +1,90 @@
+name: App Publish
+
+on:
+  push:
+    branches:
+      - main
+      - release/**
+    paths:
+      - version.json
+      - .github/workflows/nuget-publish.yml
+      - BuildTargets.props
+      - Directory.Build.props
+      - "Account/**"
+      - "Client/**"
+      - "DataModel/**"
+      - "!**/*.md"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      IS_CI: true
+
+    steps:
+      - uses: mickem/clean-after-action@v1
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set branch-based environment variables
+        uses: iamtheyammer/branch-env-vars@v1.0.4
+        with:
+          PRERELEASE: |
+            main:true
+            !default:false
+          PRERELEASEN: |
+            main:1
+            !default:0
+
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            6.0.x
+
+      # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      # Versions
+      - uses: dotnet/nbgv@master
+        id: rtk_version
+        with:
+          setAllVars: true
+
+      - uses: actions/cache@v1
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      # Restore the application to populate the obj folder with RuntimeIdentifiers
+      - name: Restore the application
+        run: dotnet restore
+
+      - name: Build Project
+        run: dotnet pack -p:Configuration=Release -p:Platform=x64 -p:PackageOutputPath="$(Get-Location)\publish\nuget"
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.rtk_version.outputs.Version }}
+          prerelease: ${{ env.PRERELEASE }}
+          body_path: CHANGES.md
+          files: |
+            ThirdPartyNotice.txt
+
+      # NuGet Push
+      - name: Push client package to Nuget registry
+        run: |
+          dotnet nuget push publish/nuget/Raid.Toolkit.Client.${{ steps.rtk_version.outputs.NuGetPackageVersion }}.nupkg -k $env:NUGET_PUBLISH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push publish/nuget/Raid.Toolkit.DataModel.${{ steps.rtk_version.outputs.NuGetPackageVersion }}.nupkg -k $env:NUGET_PUBLISH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
+        env:
+          NUGET_PUBLISH_TOKEN: ${{ secrets.NUGET_PUBLISH_TOKEN }}
