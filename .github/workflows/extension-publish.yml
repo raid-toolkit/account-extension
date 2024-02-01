@@ -1,4 +1,4 @@
-name: Publish NuGet Packages
+name: Publish Extension
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - release/**
     paths:
       - version.json
-      - .github/workflows/nuget-publish.yml
+      - .github/workflows/extension-publish.yml
       - BuildTargets.props
       - Directory.Build.props
       - "Account/**"
@@ -63,7 +63,16 @@ jobs:
         run: dotnet restore
 
       - name: Build Project
-        run: dotnet pack -p:Configuration=Release -p:Platform=x64 -p:UseCachedRTKInterop=false -p:PackageOutputPath="$(Get-Location)\publish\nuget"
+        run: dotnet build -p:Configuration=Release -p:Platform=x64 -p:UseCachedRTKInterop=false
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.rtk_version.outputs.Version }}
+          body_path: CHANGES.md
+          files: |
+            Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.AccountExtension.rtkx
+            ThirdPartyNotice.txt
 
       # NuGet Push
       - name: Push client package to Nuget registry
