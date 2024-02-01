@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Raid.Toolkit.Common" Version="3.0.76-unstable-g58e9db7489" />
+		<PackageReference Include="Raid.Toolkit.Common" Version="3.0.78-unstable" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\DataModel\DataModel.csproj" />
