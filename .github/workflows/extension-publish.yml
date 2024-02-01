@@ -63,7 +63,7 @@ jobs:
         run: dotnet restore
 
       - name: Build Project
-        run: dotnet build -p:Configuration=Release -p:Platform=x64 -p:UseCachedRTKInterop=false
+        run: dotnet build -c Release -p:UseCachedRTKInterop=false
 
       - name: Create release
         uses: softprops/action-gh-release@v1
@@ -71,5 +71,5 @@ jobs:
           tag_name: v${{ steps.rtk_version.outputs.Version }}
           body_path: CHANGES.md
           files: |
-            Account\bin\x64\Release\net6.0-windows10.0.19041.0\win10-x64\Raid.Toolkit.AccountExtension.rtkx
+            Account/bin/x64/Release/net6.0-windows10.0.19041.0/win10-x64/Raid.Toolkit.AccountExtension.rtkx
             ThirdPartyNotice.txt
