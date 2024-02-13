@@ -37,7 +37,7 @@ export interface HeroType {
   faction: Faction;
   rarity: Rarity;
   ascended: number;
-  leaderSkill: LeaderStatBonus;
+  leaderSkill: LeaderStatBonus[];
   brain: string;
   forms: HeroForm[];
 }
