@@ -284,21 +284,22 @@ public static partial class ModelExtensions
     }
 
     public static HeroType ToModel(this SharedModel.Meta.Heroes.HeroType type)
+{
+    SharedModel.Meta.Heroes.HeroVisualInfo? firstAvatar = type.VisualInfosBySkinId?.FirstOrDefault().Value;
+    return new HeroType()
     {
-        SharedModel.Meta.Heroes.HeroVisualInfo? firstAvatar = type.VisualInfosBySkinId?.FirstOrDefault().Value;
-        return new HeroType()
-        {
-            Affinity = (Enums.Element)type.Element,
-            Ascended = type.Id % 10,
-            Faction = (Enums.HeroFraction)type.Fraction,
-            Name = type.Name.ToModel(),
-            ShortName = type.ShortName?.ToModel() ?? type.Name.ToModel(),
-            Rarity = (Enums.HeroRarity)type.Rarity,
-            LeaderSkill = type.LeaderSkill?.ToModel(),
-            TypeId = type.Id,
-            Forms = type.Forms.Select(ToModel).ToArray()
-        };
-    }
+        Affinity = (Enums.Element)type.Element,
+        Ascended = type.Id % 10,
+        Faction = (Enums.HeroFraction)type.Fraction,
+        Name = type.Name.ToModel(),
+        ShortName = type.ShortName?.ToModel() ?? type.Name.ToModel(),
+        Rarity = (Enums.HeroRarity)type.Rarity,
+        LeaderSkill = type.LeaderSkill?.Select(ls => ls.ToModel()).ToArray() ?? Array.Empty<LeaderStatBonus>(),
+        TypeId = type.Id,
+        Forms = type.Forms.Select(f => f.ToModel()).ToArray()
+    };
+}
+
 
     public static LeaderStatBonus ToModel(this SharedModel.Meta.Skills.LeaderSkill skill)
     {
